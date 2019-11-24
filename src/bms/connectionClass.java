@@ -16,9 +16,6 @@ public class connectionClass {
             throw new Exception("No database");
         }
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "1997");
-//        if (con != null) {
-//            return;
-//        }
     }
 
     public void close() {
