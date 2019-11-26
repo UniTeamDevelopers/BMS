@@ -15,19 +15,18 @@ public class connectionClass {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            throw new Exception("No database");
+            throw new Exception("Database not connected");
         }
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "");
     }
 
-    public void insert() throws SQLException {
-        System.out.println("Inserting records into the table...");
+    public void insertCustomer(int id,String f_name,String l_name,int phone) throws SQLException {
+        System.out.println("Inserting records into the customer table...");
         stmt = con.createStatement();
 
-        String sql = "INSERT INTO customer "
-                + "VALUES (100, 'Zara',0123456789)";
+        String sql = "INSERT INTO customer " + "VALUES ('"+id+"', '"+f_name+"','"+l_name+"','"+phone+"')";
         stmt.executeUpdate(sql);
-        System.out.println("Inserted records into the table...");
+        System.out.println("Inserted records into the custromer table...");
     }
 
     public void close() {
