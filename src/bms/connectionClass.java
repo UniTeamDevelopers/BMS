@@ -17,7 +17,7 @@ public class connectionClass {
         } catch (ClassNotFoundException e) {
             throw new Exception("No database");
         }
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "1997");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "");
     }
 
     public void insert() throws SQLException {
@@ -25,7 +25,7 @@ public class connectionClass {
         stmt = con.createStatement();
 
         String sql = "INSERT INTO customer "
-                + "VALUES (100, 'Zara', 'Ali', 0123456789)";
+                + "VALUES (100, 'Zara',0123456789)";
         stmt.executeUpdate(sql);
         System.out.println("Inserted records into the table...");
     }
