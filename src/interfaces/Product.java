@@ -120,9 +120,9 @@ public class Product extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(30, 20, 1000, 530);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(2, 0, 1050, 580);
+        jLabel1.setBounds(2, 0, 1050, 590);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

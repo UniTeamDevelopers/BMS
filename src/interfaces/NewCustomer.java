@@ -138,9 +138,9 @@ public class NewCustomer extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(30, 20, 890, 497);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 958, 560);
+        jLabel2.setBounds(0, 0, 1050, 580);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

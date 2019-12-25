@@ -38,11 +38,11 @@ public class Management extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("New Customer");
         getContentPane().add(jButton3);
-        jButton3.setBounds(350, 260, 151, 37);
+        jButton3.setBounds(420, 250, 151, 37);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 900, 600);
+        jLabel1.setBounds(0, 0, 1110, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
