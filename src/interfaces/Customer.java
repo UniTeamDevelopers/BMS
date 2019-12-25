@@ -29,7 +29,7 @@ public class Customer extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("New Customer");
         getContentPane().add(jButton3);
-        jButton3.setBounds(350, 500, 151, 37);
+        jButton3.setBounds(450, 530, 151, 37);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -51,12 +51,12 @@ public class Customer extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(120, 70, 630, 400);
+        jScrollPane1.setBounds(70, 30, 960, 470);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 910, 600);
+        jLabel2.setBounds(-40, 0, 1140, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

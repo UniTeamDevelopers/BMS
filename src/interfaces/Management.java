@@ -27,33 +27,25 @@ public class Management extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnNewCustomer = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1050, 600));
         getContentPane().setLayout(null);
 
-        btnNewCustomer.setText("New Customer");
-        btnNewCustomer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewCustomerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnNewCustomer);
-        btnNewCustomer.setBounds(360, 250, 117, 25);
+        jButton3.setBackground(new java.awt.Color(0, 204, 204));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButton3.setText("New Customer");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(350, 260, 151, 37);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 900, 602);
+        jLabel1.setBounds(0, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnNewCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewCustomerActionPerformed
-        // TODO add your handling code here:
-        new NewCustomer().setVisible(true);
-    }//GEN-LAST:event_btnNewCustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,7 +83,7 @@ public class Management extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNewCustomer;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
