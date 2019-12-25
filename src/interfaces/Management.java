@@ -43,9 +43,9 @@ public class Management extends javax.swing.JFrame {
         getContentPane().add(btnNewCustomer);
         btnNewCustomer.setBounds(360, 250, 117, 25);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base4.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base3.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(1, 0, 900, 600);
+        jLabel1.setBounds(1, 0, 900, 602);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
