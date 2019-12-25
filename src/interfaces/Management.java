@@ -28,9 +28,11 @@ public class Management extends javax.swing.JFrame {
     private void initComponents() {
 
         btnNewCustomer = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1050, 600));
+        getContentPane().setLayout(null);
 
         btnNewCustomer.setText("New Customer");
         btnNewCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -38,23 +40,12 @@ public class Management extends javax.swing.JFrame {
                 btnNewCustomerActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNewCustomer);
+        btnNewCustomer.setBounds(360, 250, 117, 25);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnNewCustomer)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnNewCustomer)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/base4.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1, 0, 900, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -101,5 +92,6 @@ public class Management extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNewCustomer;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
