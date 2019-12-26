@@ -21,7 +21,11 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -30,17 +34,27 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(390, 180, 34, 14);
+        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(340, 210, 320, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\2nd year\\JAVA Projects\\BMS\\src\\Images\\login5.png")); // NOI18N
+        jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
+        getContentPane().add(jPasswordField1);
+        jPasswordField1.setBounds(340, 340, 320, 40);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(540, 450, 110, 40);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(350, 450, 110, 40);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\2nd year\\JAVA Projects\\bmsRE\\BMS\\src\\Images\\login6.png")); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(300, 20, 400, 520);
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(260, 40, 448, 540);
+        jLabel2.setBounds(260, 40, 448, 0);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 1050, 630);
+        jLabel5.setBounds(-20, -30, 1050, 630);
 
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
@@ -65,9 +79,13 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
