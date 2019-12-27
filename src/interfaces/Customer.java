@@ -11,29 +11,6 @@ public class Customer extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    table.setDefaultRenderer(Object.class, new TableCellRenderer(){
-    private DefaultTableCellRenderer DEFAULT_RENDERER =  new DefaultTableCellRenderer();
-
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                if(isSelected){
-                    c.setBackground(Color.YELLOW);
-                }else{
-                if (row%2 == 0){
-                    c.setBackground(Color.WHITE);
-
-                }
-                else {
-                    c.setBackground(Color.LIGHT_GRAY);
-                }     }
-
-       //Add below code here
-                return c;
-            }
-
-        });
-    
 
    
     @SuppressWarnings("unchecked")
@@ -54,9 +31,6 @@ public class Customer extends javax.swing.JFrame {
         getContentPane().add(jButton3);
         jButton3.setBounds(450, 530, 151, 37);
 
-        jTable1.setAutoCreateColumnsFromModel(false);
-        jTable1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -74,8 +48,6 @@ public class Customer extends javax.swing.JFrame {
                 "Customer ID", "First Name", "Last Name", "Mobile Number"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 2, 64));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
