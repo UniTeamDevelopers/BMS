@@ -5,24 +5,28 @@
  */
 package interfaces;
 
+import bms.connectionClass;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javax.swing.JFrame;
-
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
-   
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
     }
 
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUserName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -31,18 +35,18 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 0, 29)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 2, 82));
-        jTextField1.setBorder(null);
-        jTextField1.setOpaque(false);
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 60));
+        txtUserName.setBackground(new java.awt.Color(153, 153, 153));
+        txtUserName.setFont(new java.awt.Font("Times New Roman", 0, 29)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(0, 2, 82));
+        txtUserName.setBorder(null);
+        txtUserName.setOpaque(false);
+        getContentPane().add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 310, 60));
 
-        jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
-        jPasswordField1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jPasswordField1.setBorder(null);
-        jPasswordField1.setOpaque(false);
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 60));
+        txtPassword.setBackground(new java.awt.Color(153, 153, 153));
+        txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        txtPassword.setBorder(null);
+        txtPassword.setOpaque(false);
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 310, 60));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 90, 50));
 
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,8 +70,29 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        // TODO add your handling code here:
-        new Home().setVisible(true);
+        // Login button
+        String uName = txtUserName.getText().trim();
+        String pass = txtPassword.getText().trim();
+
+        try {
+            // TODO add your handling code here:
+            connectionClass login = new connectionClass();//connection object for NewCustomer
+            try {
+                login.connect();
+            } catch (Exception e) {
+            }
+            String passCheck = login.returnPass(uName);
+            if (pass.equals(passCheck)) {
+                new Home().setVisible(true);
+                setVisible(false);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid Username / Password","Login Error",2);
+            }
+            login.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -76,9 +101,8 @@ public class Login extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-  
     public static void main(String args[]) {
-       
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -91,7 +115,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

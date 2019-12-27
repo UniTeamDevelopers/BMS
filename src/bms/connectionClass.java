@@ -10,6 +10,7 @@ public class connectionClass {
     private Connection con;
     Statement stmt;
 
+    //connection
     public void connect() throws Exception {
 
         try {
@@ -19,16 +20,33 @@ public class connectionClass {
         }
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "");
     }
-
-    public void insertCustomer(int id,String f_name,String l_name,int phone) throws SQLException {
+    
+    //create customer record
+    public void insertCustomer(int id, String f_name, String l_name, int phone) throws SQLException {
         System.out.println("Inserting records into the customer table...");
         stmt = con.createStatement();
 
-        String sql = "INSERT INTO customer " + "VALUES ('"+id+"', '"+f_name+"','"+l_name+"','"+phone+"')";
+        String sql = "INSERT INTO customer " + "VALUES ('" + id + "', '" + f_name + "','" + l_name + "','" + phone + "')";
         stmt.executeUpdate(sql);
         System.out.println("Inserted records into the custromer table...");
     }
 
+    //login data
+    public String returnPass(String txtUname) throws SQLException {
+        String pass = null;
+        System.out.println("fetching data");
+        stmt = con.createStatement();
+        //String sql = "select password from user where u_name ='"+txtUname+"'";
+        String sql = "select * from user";
+        stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            pass = rs.getString("password");
+        }
+        return pass;
+    }
+
+    //connection close
     public void close() {
         if (con != null) {
             try {
