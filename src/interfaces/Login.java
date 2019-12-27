@@ -36,17 +36,17 @@ public class Login extends javax.swing.JFrame {
 
         jTextField1.setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(340, 210, 320, 40);
+        jTextField1.setBounds(340, 200, 330, 60);
 
         jPasswordField1.setBackground(new java.awt.Color(153, 153, 153));
         getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(340, 340, 320, 40);
+        jPasswordField1.setBounds(340, 330, 330, 60);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(540, 450, 110, 40);
         getContentPane().add(jLabel4);
         jLabel4.setBounds(350, 450, 110, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\2nd year\\JAVA Projects\\bmsRE\\BMS\\src\\Images\\login6.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login5.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(300, 20, 400, 520);
         getContentPane().add(jLabel2);
@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(-20, -30, 1050, 630);
+        jLabel5.setBounds(0, -20, 1050, 630);
 
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
