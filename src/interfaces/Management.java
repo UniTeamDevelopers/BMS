@@ -35,19 +35,17 @@ public class Management extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1050, 600));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setBackground(new java.awt.Color(0, 204, 204));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setText("Product");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(410, 140, 240, 60);
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 240, 60));
 
         jButton4.setBackground(new java.awt.Color(102, 0, 102));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton4.setText("Home");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(851, 20, 180, 60);
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(851, 20, 180, 60));
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -57,18 +55,15 @@ public class Management extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(410, 340, 240, 60);
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 240, 60));
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton6.setText("Supplier");
-        getContentPane().add(jButton6);
-        jButton6.setBounds(410, 240, 240, 60);
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 240, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 1110, 600);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

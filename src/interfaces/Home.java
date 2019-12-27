@@ -38,7 +38,7 @@ public class Home extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setOpaque(false);
@@ -224,12 +224,10 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.getAccessibleContext().setAccessibleName("Discount  :");
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 10, 1020, 540);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1020, 540));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, -60, 1050, 700);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
