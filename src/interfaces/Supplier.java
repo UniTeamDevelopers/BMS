@@ -56,6 +56,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 "Id", "Name", "Number"
             }
         ));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1010, 450));
