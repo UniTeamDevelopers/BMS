@@ -16,6 +16,7 @@ public class Product extends javax.swing.JInternalFrame {
      */
     public Product() {
         initComponents();
+        
     }
 
     /**
