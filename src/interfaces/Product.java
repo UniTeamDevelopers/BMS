@@ -5,18 +5,29 @@
  */
 package interfaces;
 
+import bms.connectionClass;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
  */
 public class Product extends javax.swing.JInternalFrame {
 
+    Connection con = null;
+    PreparedStatement pst = null;
     /**
      * Creates new form Product
      */
     public Product() {
         initComponents();
         
+        
+       
     }
 
     /**
@@ -39,10 +50,10 @@ public class Product extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        ID = new javax.swing.JTextField();
+        Name = new javax.swing.JTextField();
+        Quntity = new javax.swing.JTextField();
+        Price = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -66,6 +77,11 @@ public class Product extends javax.swing.JInternalFrame {
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_add_32px.png"))); // NOI18N
         jButton5.setText("Add New Product");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,17 +136,21 @@ public class Product extends javax.swing.JInternalFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Price");
 
-        jTextField2.setToolTipText("Product Name");
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        ID.setToolTipText("Product Name");
+        ID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextField3.setToolTipText("Product Name");
-        jTextField3.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Name.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Name.setToolTipText("Product Name");
+        Name.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextField4.setToolTipText("Product Name");
-        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Quntity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Quntity.setToolTipText("Product Name");
+        Quntity.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextField5.setToolTipText("Product Name");
-        jTextField5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Price.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        Price.setToolTipText("Product Name");
+        Price.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -166,10 +186,10 @@ public class Product extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Quntity, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
@@ -186,18 +206,18 @@ public class Product extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Quntity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
@@ -217,8 +237,36 @@ public class Product extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(ID.getText().trim());
+        String P_Name = Name.getText().trim();
+        int qty = Integer.parseInt(Quntity.getText().trim());
+        double unit_price = Integer.parseInt(Price.getText().trim());
+
+        try {
+            // TODO add your handling code here:
+            connectionClass management = new connectionClass();//connection object for add product
+            try {
+                management.connect();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            management.insertProduct(id,P_Name,qty,unit_price);
+            management.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ID;
+    private javax.swing.JTextField Name;
+    private javax.swing.JTextField Price;
+    private javax.swing.JTextField Quntity;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -233,9 +281,5 @@ public class Product extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

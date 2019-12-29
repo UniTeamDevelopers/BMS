@@ -20,7 +20,7 @@ public class connectionClass {
         }
         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bms" + "?useSSL=false", "root", "");
     }
-    
+
     //create customer record
     public void insertCustomer(int id, String f_name, String l_name, int phone) throws SQLException {
         System.out.println("Inserting records into the customer table...");
@@ -55,5 +55,16 @@ public class connectionClass {
                 e.printStackTrace();
             }
         }
+    }
+    
+
+    //create product record
+    public void insertProduct(int id, String p_name, int qty, double unit_price) throws SQLException {
+        System.out.println("Inserting records into the product table...");
+        stmt = con.createStatement();
+
+        String sql = "INSERT INTO Product " + "VALUES ('" + id + "', '" + p_name + "','" + qty + "','" + unit_price + "')";
+        stmt.executeUpdate(sql);
+        System.out.println("Inserted records into the product table...");
     }
 }
