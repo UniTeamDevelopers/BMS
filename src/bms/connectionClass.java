@@ -72,5 +72,13 @@ public class connectionClass {
     public void systemConnection() throws SQLException{
         stmt = con.createStatement();
         System.out.println("connection eatablished");
+
+    }
+    public void updateProduct (String name,int qty,double u_price,int change_key) throws SQLException{
+        stmt = con.createStatement();
+        String sql = "UPDATE Product set p_name = '"+name+"',qty ='"+qty+"',unit_price = '"+u_price+"' where p_id = '"+change_key+"'";
+        stmt.executeUpdate(sql);
+        System.out.println("Update complete");
     }
 }
+

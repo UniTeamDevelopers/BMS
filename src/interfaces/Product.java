@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.scene.input.KeyCode.X;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,35 +24,36 @@ public class Product extends javax.swing.JInternalFrame {
     Connection con = null;
     PreparedStatement pst = null;
     public DefaultTableModel model;
-    
+    public String clickValue;
+
     /**
      * Creates new form Product
      */
     public Product() throws Exception {
-        initComponents(); 
+        initComponents();
         showTable();
     }
-    
-    public void showTable() throws Exception{
+
+    public void showTable() throws Exception {
         connectionClass table = new connectionClass();
         table.connect();
-        try{
+        try {
             table.systemConnection();
             table.rs = table.stmt.executeQuery("select * from product");
-            while(table.rs.next()){
+            while (table.rs.next()) {
                 int id = table.rs.getInt(1);
                 String pName = table.rs.getString(2);
                 int qty = table.rs.getInt(3);
                 Double uPrice = table.rs.getDouble(4);
-                System.out.println(id+" "+pName+" "+qty+" "+uPrice);
-                Object[] content = {id,pName,qty,uPrice};
-                model = (DefaultTableModel)tblProduct.getModel();
+                System.out.println(id + " " + pName + " " + qty + " " + uPrice);
+                Object[] content = {id, pName, qty, uPrice};
+                model = (DefaultTableModel) tblProduct.getModel();
                 model.addRow(content);
             }
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
 
     /**
@@ -90,6 +93,11 @@ public class Product extends javax.swing.JInternalFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_edit_32px.png"))); // NOI18N
         jButton3.setText("Edit Selected Product");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(0, 204, 204));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -114,6 +122,11 @@ public class Product extends javax.swing.JInternalFrame {
                 "Id", "Name", "Quntity", "Price"
             }
         ));
+        tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblProduct);
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
@@ -249,12 +262,11 @@ public class Product extends javax.swing.JInternalFrame {
             connectionClass management = new connectionClass();//connection object for add product
             try {
                 management.connect();
-                 
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            management.insertProduct(id,P_Name,qty,unit_price);
+            management.insertProduct(id, P_Name, qty, unit_price);
             management.close();
         } catch (SQLException ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
@@ -265,8 +277,67 @@ public class Product extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jButton5ActionPerformed
+//product update
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Update");
+        
+        int id = Integer.parseInt(ID.getText().trim());
+        String P_Name = Name.getText().trim();
+        int qty = Integer.parseInt(Quntity.getText().trim());
+        double unit_price = Double.valueOf(Price.getText().trim());
+        try{
+            connectionClass productUpdate = new connectionClass();
+            productUpdate.connect();
+            productUpdate.updateProduct(P_Name, qty, unit_price, Integer.parseInt(clickValue));
+            productUpdate.close();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        model.setRowCount(0);
+        try {
+            showTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+     
+
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
+        // TODO add your handling code here:
+        int column = 0;
+        int row = tblProduct.getSelectedRow();
+        clickValue = tblProduct.getModel().getValueAt(row, column).toString();
+        connectionClass table = new connectionClass();
+        try {
+            table.connect();
+        } catch (Exception ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            table.systemConnection();
+            table.rs = table.stmt.executeQuery("select p_id,p_name,qty,unit_price from product where p_id = '" + clickValue + "'");
+            while (table.rs.next()) {
+                int id = table.rs.getInt(1);
+                String pName = table.rs.getString(2);
+                int qty = table.rs.getInt(3);
+                Double uPrice = table.rs.getDouble(4);
+                System.out.println(id + " " + pName + " " + qty + " " + uPrice);
+
+                ID.setText(String.valueOf(id));
+                Name.setText(String.valueOf(pName));
+                Quntity.setText(String.valueOf(qty));
+                Price.setText(String.valueOf(uPrice));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }//GEN-LAST:event_tblProductMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
