@@ -1,5 +1,6 @@
 package interfaces;
 
+import bms.connectionClass;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
@@ -13,6 +14,12 @@ public class Home extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public void showTable() throws Exception{
+        connectionClass table = new connectionClass();
+        table.connect();
+    }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

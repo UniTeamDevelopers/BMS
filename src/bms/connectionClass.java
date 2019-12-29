@@ -8,7 +8,8 @@ import java.sql.*;
 public class connectionClass {
 
     private Connection con;
-    Statement stmt;
+    public Statement stmt;
+    public ResultSet rs = null;
 
     //connection
     public void connect() throws Exception {
@@ -66,5 +67,10 @@ public class connectionClass {
         String sql = "INSERT INTO Product " + "VALUES ('" + id + "', '" + p_name + "','" + qty + "','" + unit_price + "')";
         stmt.executeUpdate(sql);
         System.out.println("Inserted records into the product table...");
+    }
+    
+    public void systemConnection() throws SQLException{
+        stmt = con.createStatement();
+        System.out.println("connection eatablished");
     }
 }

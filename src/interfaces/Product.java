@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,14 +21,36 @@ public class Product extends javax.swing.JInternalFrame {
 
     Connection con = null;
     PreparedStatement pst = null;
+    public DefaultTableModel model;
+    
     /**
      * Creates new form Product
      */
-    public Product() {
-        initComponents();
+    public Product() throws Exception {
+        initComponents(); 
+        showTable();
+    }
+    
+    public void showTable() throws Exception{
+        connectionClass table = new connectionClass();
+        table.connect();
+        try{
+            table.systemConnection();
+            table.rs = table.stmt.executeQuery("select * from product");
+            while(table.rs.next()){
+                int id = table.rs.getInt(1);
+                String pName = table.rs.getString(2);
+                int qty = table.rs.getInt(3);
+                Double uPrice = table.rs.getDouble(4);
+                System.out.println(id+" "+pName+" "+qty+" "+uPrice);
+                Object[] content = {id,pName,qty,uPrice};
+                model = (DefaultTableModel)tblProduct.getModel();
+                model.addRow(content);
+            }
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
         
-        
-       
     }
 
     /**
@@ -44,7 +67,7 @@ public class Product extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProduct = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -83,38 +106,15 @@ public class Product extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Id", "Name", "Quntity", "Price"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblProduct);
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,6 +249,8 @@ public class Product extends javax.swing.JInternalFrame {
             connectionClass management = new connectionClass();//connection object for add product
             try {
                 management.connect();
+                 
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -257,7 +259,12 @@ public class Product extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
+        model.setRowCount(0);
+        try {
+            showTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -279,7 +286,7 @@ public class Product extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tblProduct;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author User
@@ -103,7 +106,12 @@ public class Management extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
         jDesktopPane1.removeAll();
-        Product m1 = new Product();
+        Product m1 = null;
+        try {
+            m1 = new Product();
+        } catch (Exception ex) {
+            Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
         jDesktopPane1.add(m1).setVisible(true);
 
         // new Product().setVisible(true);
