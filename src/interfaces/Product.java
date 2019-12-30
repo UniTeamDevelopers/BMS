@@ -71,7 +71,7 @@ public class Product extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProduct = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -103,6 +103,11 @@ public class Product extends javax.swing.JInternalFrame {
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px.png"))); // NOI18N
         jButton4.setText("Search");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -129,9 +134,9 @@ public class Product extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblProduct);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setOpaque(false);
+        txtSearch.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setOpaque(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -169,6 +174,11 @@ public class Product extends javax.swing.JInternalFrame {
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_close_window_30px.png"))); // NOI18N
         jButton6.setText("Remove Selected Product");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -178,7 +188,7 @@ public class Product extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 794, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -213,7 +223,7 @@ public class Product extends javax.swing.JInternalFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -283,17 +293,17 @@ public class Product extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Update");
-        
+
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
         int qty = Integer.parseInt(Quntity.getText().trim());
         double unit_price = Double.valueOf(Price.getText().trim());
-        try{
+        try {
             connectionClass productUpdate = new connectionClass();
             productUpdate.connect();
             productUpdate.updateProduct(P_Name, qty, unit_price, Integer.parseInt(clickValue));
             productUpdate.close();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
         model.setRowCount(0);
@@ -302,7 +312,6 @@ public class Product extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
-     
 
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -339,6 +348,53 @@ public class Product extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_tblProductMouseClicked
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        connectionClass deleteProduct = new connectionClass();
+        try {
+            deleteProduct.connect();
+            deleteProduct.deleteFromProduct(clickValue);
+            deleteProduct.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        model.setRowCount(0);
+        try {
+            showTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        connectionClass searchProduct = new connectionClass();
+        String sk = txtSearch.getText().trim();
+        try {
+            searchProduct.connect();
+        } catch (Exception ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            searchProduct.connect();
+            searchProduct.rs = searchProduct.stmt.executeQuery("select * from product where p_id = '" + sk + "'");
+            while (searchProduct.rs.next()) {
+                int id = searchProduct.rs.getInt(1);
+                String pName = searchProduct.rs.getString(2);
+                int qty = searchProduct.rs.getInt(3);
+                Double uPrice = searchProduct.rs.getDouble(4);
+                System.out.println(id+" "+ pName+" "+ qty+" "+ uPrice);
+                //model.setRowCount(0);
+                Object[] content = {id, pName, qty, uPrice};
+                model = (DefaultTableModel) tblProduct.getModel();
+                model.addRow(content);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        searchProduct.close();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ID;
@@ -357,7 +413,7 @@ public class Product extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tblProduct;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

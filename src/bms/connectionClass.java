@@ -80,5 +80,16 @@ public class connectionClass {
         stmt.executeUpdate(sql);
         System.out.println("Update complete");
     }
+    public void deleteFromProduct(String selected) throws SQLException{
+        stmt = con.createStatement();
+        String sql = "delete from product where p_id='"+ selected +"'";
+        stmt.executeUpdate(sql);
+        System.out.println("record deleted successfully");
+    }
+    
+    public void productSearch(int sk) throws SQLException{
+        stmt = con.createStatement();
+        System.out.println("Searching...");
+    }
 }
 

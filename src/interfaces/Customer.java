@@ -5,17 +5,45 @@
  */
 package interfaces;
 
+import bms.connectionClass;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
  */
 public class Customer extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel model;
+
     /**
      * Creates new form Customer
      */
-    public Customer() {
+    public Customer() throws Exception {
         initComponents();
+        showCustomer();
+    }
+    
+    public void showCustomer() throws Exception
+    {
+           connectionClass showCustomer = new connectionClass();
+        showCustomer.connect();
+        try {
+            showCustomer.systemConnection();
+            showCustomer.rs = showCustomer.stmt.executeQuery("select * from customer");
+            while (showCustomer.rs.next()) {
+                int id = showCustomer.rs.getInt(1);
+                String fName = showCustomer.rs.getString(2);
+                String lName = showCustomer.rs.getString(3);
+                int tele = showCustomer.rs.getInt(4);
+                System.out.println(id + " " + fName + " " + lName + " " + tele);
+                Object[] content = {id, fName, lName, tele};
+                model = (DefaultTableModel)tblCustomer.getModel();
+                model.addRow(content);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
@@ -28,30 +56,21 @@ public class Customer extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCustomer = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Customer ID", "First Name", "Last Name", "Mobile Number"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblCustomer);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1010, 450));
 
@@ -82,6 +101,6 @@ public class Customer extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCustomer;
     // End of variables declaration//GEN-END:variables
 }

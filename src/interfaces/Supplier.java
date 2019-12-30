@@ -5,17 +5,45 @@
  */
 package interfaces;
 
+import bms.connectionClass;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
  */
 public class Supplier extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel model;
+
     /**
      * Creates new form Supplier
      */
-    public Supplier() {
+    public Supplier() throws Exception {
         initComponents();
+        showSupplierTable();
+    }
+
+    public void showSupplierTable() throws Exception {
+        connectionClass showSupplier = new connectionClass();
+        showSupplier.connect();
+        try {
+            showSupplier.systemConnection();
+            showSupplier.rs = showSupplier.stmt.executeQuery("select * from supplier");
+            while (showSupplier.rs.next()) {
+                int id = showSupplier.rs.getInt(1);
+                String sName = showSupplier.rs.getString(2);
+                int tele = showSupplier.rs.getInt(3);
+                String address = showSupplier.rs.getString(4);
+                int accNum = showSupplier.rs.getInt(5);
+                System.out.println(id + " " + sName + " " + tele + " " + address +" "+accNum);
+                Object[] content = {id, sName, tele, address,accNum};
+                model = (DefaultTableModel) tblSupplier.getModel();
+                model.addRow(content);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     /**
@@ -28,36 +56,23 @@ public class Supplier extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblSupplier = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblSupplier.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Id", "Name", "Number"
+                "Id", "Name", "Number", "Mobil", "Acc_Number"
             }
         ));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(2, 2));
-        jScrollPane1.setViewportView(jTable1);
+        tblSupplier.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        jScrollPane1.setViewportView(tblSupplier);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1010, 450));
 
@@ -77,6 +92,6 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblSupplier;
     // End of variables declaration//GEN-END:variables
 }

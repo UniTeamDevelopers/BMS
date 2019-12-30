@@ -119,20 +119,28 @@ public class Management extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        jDesktopPane1.removeAll();
-        Customer m2 = new Customer();
-        jDesktopPane1.add(m2).setVisible(true);
-
-        //new Customer().setVisible(true);
+        try {
+            jDesktopPane1.removeAll();
+            Customer m2 = new Customer();
+            jDesktopPane1.add(m2).setVisible(true);
+            
+            //new Customer().setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        jDesktopPane1.removeAll();
-        Supplier m3 = new Supplier();
-        jDesktopPane1.add(m3).setVisible(true);
-
-        //new Supplier().setVisible(true);
+        try {
+            jDesktopPane1.removeAll();
+            Supplier m3 = new Supplier();
+            jDesktopPane1.add(m3).setVisible(true);
+            
+            //new Supplier().setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
