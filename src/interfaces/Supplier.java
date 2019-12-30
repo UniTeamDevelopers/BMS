@@ -6,6 +6,7 @@
 package interfaces;
 
 import bms.connectionClass;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,8 @@ public class Supplier extends javax.swing.JInternalFrame {
     public Supplier() throws Exception {
         initComponents();
         showSupplierTable();
+        tblSupplier.setRowHeight(40);
+        tblSupplier.setFont(new Font("Serif", Font.BOLD, 20));
     }
 
     public void showSupplierTable() throws Exception {

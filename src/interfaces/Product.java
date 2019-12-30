@@ -6,6 +6,7 @@
 package interfaces;
 
 import bms.connectionClass;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -32,6 +33,8 @@ public class Product extends javax.swing.JInternalFrame {
     public Product() throws Exception {
         initComponents();
         showTable();
+        tblProduct.setRowHeight(40);
+        tblProduct.setFont(new Font("Serif", Font.BOLD, 20));
     }
 
     public void showTable() throws Exception {

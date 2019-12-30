@@ -1,6 +1,7 @@
 package interfaces;
 
 import bms.connectionClass;
+import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,9 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         this.setLocationRelativeTo(null);
+        tblHome.setRowHeight(60);
+        tblHome.setFont(new Font("Serif", Font.BOLD, 20));
+        
     }
 
     public void showTable() throws Exception{
@@ -33,7 +37,7 @@ public class Home extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        mainTable = new javax.swing.JTable();
+        tblHome = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -93,8 +97,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        mainTable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        mainTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblHome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tblHome.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -117,7 +121,7 @@ public class Home extends javax.swing.JFrame {
                 "Product Name", "Quntity", "Price", "Amount"
             }
         ));
-        jScrollPane1.setViewportView(mainTable);
+        jScrollPane1.setViewportView(tblHome);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -341,7 +345,7 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel dm = (DefaultTableModel) mainTable.getModel();
+        DefaultTableModel dm = (DefaultTableModel) tblHome.getModel();
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged(); // notifies the JTable that the model has changed
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -387,7 +391,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblSelectedCustomer;
-    private javax.swing.JTable mainTable;
+    private javax.swing.JTable tblHome;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

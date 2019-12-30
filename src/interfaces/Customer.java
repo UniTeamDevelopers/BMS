@@ -6,6 +6,7 @@
 package interfaces;
 
 import bms.connectionClass;
+import java.awt.Font;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,8 @@ public class Customer extends javax.swing.JInternalFrame {
     public Customer() throws Exception {
         initComponents();
         showCustomer();
+        tblCustomer.setRowHeight(40);
+        tblCustomer.setFont(new Font("Serif", Font.BOLD, 20));
     }
     
     public void showCustomer() throws Exception
