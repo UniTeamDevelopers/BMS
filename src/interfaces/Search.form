@@ -34,7 +34,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="60" width="-1" height="-1"/>
+          <AbsoluteConstraints x="90" y="60" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
 
@@ -43,9 +43,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jLabel4" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" pref="140" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -76,9 +76,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextField2" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jButton3" min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>

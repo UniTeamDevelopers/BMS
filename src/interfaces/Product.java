@@ -103,7 +103,7 @@ public class Product extends javax.swing.JInternalFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(0, 204, 204));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px.png"))); // NOI18N
         jButton4.setText("Search");
         jButton4.addActionListener(new java.awt.event.ActionListener() {

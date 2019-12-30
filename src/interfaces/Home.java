@@ -63,17 +63,17 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1050, 600));
 
         jButton5.setBackground(new java.awt.Color(0, 153, 153));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_discount_50px.png"))); // NOI18N
         jButton5.setText("Discount");
 
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_decline_50px.png"))); // NOI18N
         jButton1.setText("Quantity");
 
         jButton4.setBackground(new java.awt.Color(0, 153, 153));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_plus_24px.png"))); // NOI18N
         jButton4.setText("New Sale");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -83,12 +83,12 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_close_window_30px.png"))); // NOI18N
         jButton2.setText("Delete");
 
         jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_database_import_50px.png"))); // NOI18N
         jButton3.setText("Stock");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +136,7 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setText("Total       :");
 
         jButton9.setBackground(new java.awt.Color(255, 255, 0));
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Buy_For_Cash_32px.png"))); // NOI18N
         jButton9.setText("Cash");
 
@@ -151,12 +151,12 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton10.setBackground(new java.awt.Color(255, 255, 0));
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_credit_card_50px_1.png"))); // NOI18N
         jButton10.setText("Credit");
 
         btnSelectCustomer.setBackground(new java.awt.Color(102, 102, 102));
-        btnSelectCustomer.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        btnSelectCustomer.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSelectCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_checked_checkbox_26px.png"))); // NOI18N
         btnSelectCustomer.setText("Select Customer");
         btnSelectCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,7 @@ public class Home extends javax.swing.JFrame {
         jLabel15.setText(" Home");
 
         jButton6.setBackground(new java.awt.Color(0, 153, 153));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px.png"))); // NOI18N
         jButton6.setText("Search");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +233,7 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(62, 62, 62)
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -290,7 +290,11 @@ public class Home extends javax.swing.JFrame {
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel10)))
+                            .addComponent(jLabel10))
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -301,11 +305,9 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(btnSelectCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9)
                             .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jLabel1.getAccessibleContext().setAccessibleName("Discount  :");
