@@ -2,6 +2,8 @@ package interfaces;
 
 import bms.connectionClass;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
@@ -329,8 +331,12 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchKeyPressed
 
     private void btnSelectCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectCustomerActionPerformed
-        // TODO add your handling code here:
-        new Customer().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Customer().setVisible(true);
+        } catch (Exception ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnSelectCustomerActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

@@ -251,7 +251,7 @@ public class Product extends javax.swing.JInternalFrame {
                 .addContainerGap(52, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -1, 1030, 590));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 590));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 78, 800, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
@@ -261,7 +261,7 @@ public class Product extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        // add product
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
         int qty = Integer.parseInt(Quntity.getText().trim());
@@ -291,8 +291,8 @@ public class Product extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 //product update
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Update");
+        // update product
+        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Update Product");
 
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
@@ -317,7 +317,7 @@ public class Product extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
-        // TODO add your handling code here:
+        // Mouse clic event on Product table
         int column = 0;
         int row = tblProduct.getSelectedRow();
         clickValue = tblProduct.getModel().getValueAt(row, column).toString();
@@ -349,7 +349,8 @@ public class Product extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tblProductMouseClicked
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // delete product
+        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Delete Product");
         connectionClass deleteProduct = new connectionClass();
         try {
             deleteProduct.connect();
@@ -367,7 +368,7 @@ public class Product extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        // search
         connectionClass searchProduct = new connectionClass();
         String sk = txtSearch.getText().trim();
         try {

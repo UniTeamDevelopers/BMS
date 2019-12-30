@@ -6,6 +6,10 @@
 package interfaces;
 
 import bms.connectionClass;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class Supplier extends javax.swing.JInternalFrame {
 
     private DefaultTableModel model;
+    private String clickValue;
 
     /**
      * Creates new form Supplier
@@ -57,7 +62,19 @@ public class Supplier extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSupplier = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        txtMobile = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtAcc_Number = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,18 +85,91 @@ public class Supplier extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Id", "Name", "Number", "Mobil", "Acc_Number"
+                "Id", "Name", "Mobil", "Address", "Acc_Number"
             }
         ));
         tblSupplier.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        tblSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSupplierMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblSupplier);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1010, 450));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 550, 380));
+
+        jButton5.setBackground(new java.awt.Color(0, 204, 204));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_add_32px.png"))); // NOI18N
+        jButton5.setText("Add New Product");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 491, 250, 60));
 
         jButton3.setBackground(new java.awt.Color(0, 204, 204));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jButton3.setText("New Supplier");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 200, 40));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_edit_32px.png"))); // NOI18N
+        jButton3.setText("Edit Selected Product");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 491, 270, 60));
+
+        jButton6.setBackground(new java.awt.Color(0, 204, 204));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_close_window_30px.png"))); // NOI18N
+        jButton6.setText("Remove Selected Product");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 489, -1, 60));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Acc_Number");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 130, 40));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("ID");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 80, 40));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Name");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 80, 40));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Mobile");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 80, 40));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Address");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 40));
+
+        txtName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 290, 40));
+
+        txtMobile.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        getContentPane().add(txtMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 290, 40));
+
+        txtAddress.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 290, 90));
+
+        txtAcc_Number.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        getContentPane().add(txtAcc_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 290, 40));
+
+        txtID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 290, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
@@ -87,11 +177,132 @@ public class Supplier extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // add supplier
+        int Id = Integer.parseInt(txtID.getText().trim());
+        String Name = txtName.getText().trim();
+        int telephone = Integer.parseInt(txtMobile.getText().trim());
+        String Address = txtName.getText().trim();
+        int Acc_Number = Integer.parseInt(txtAcc_Number.getText().trim());
+
+        try {
+            // TODO add your handling code here:
+            connectionClass management = new connectionClass();//connection object for add product
+            try {
+                management.connect();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            management.insertsupplier(Id, Name, telephone, Address,Acc_Number);
+            management.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        model.setRowCount(0);
+        try {
+            showSupplierTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // supplier update
+        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Update Supplier");
+
+        int Id = Integer.parseInt(txtID.getText().trim());
+        String Name = txtName.getText().trim();
+        int telephone = Integer.parseInt(txtMobile.getText().trim());
+        String Address = txtName.getText().trim();
+        int Acc_Number = Integer.parseInt(txtAcc_Number.getText().trim());
+        try {
+            connectionClass supplierUpdate = new connectionClass();
+            supplierUpdate.connect();
+            supplierUpdate.updateSupplier(Name, telephone, Address,Acc_Number,Integer.parseInt(clickValue));
+            supplierUpdate.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        model.setRowCount(0);
+        try {
+            showSupplierTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // delete supplier
+        int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Delete Supplier");
+        
+        connectionClass deleteSupplier = new connectionClass();
+        try {
+            deleteSupplier.connect();
+            deleteSupplier.deleteFromSupplier(clickValue);
+            deleteSupplier.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        model.setRowCount(0);
+        try {
+            showSupplierTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
+        // Mouse clic event on supplier table
+        int column = 0;
+        int row = tblSupplier.getSelectedRow();
+        clickValue = tblSupplier.getModel().getValueAt(row, column).toString();
+        connectionClass table = new connectionClass();
+        try {
+            table.connect();
+        } catch (Exception ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            table.systemConnection();
+            table.rs = table.stmt.executeQuery("select s_id,s_name,telephone,address,acc_number from supplier where s_id = '" + clickValue + "'");
+            while (table.rs.next()) {
+                int id = table.rs.getInt(1);
+                String s_name = table.rs.getString(2);
+                int telephone = table.rs.getInt(3);
+                String address = table.rs.getString(4);
+                int acc_number = table.rs.getInt(5);
+                System.out.println(id + " " + s_name + " " + telephone + " " + address+" "+acc_number);
+
+                txtID.setText(String.valueOf(id));
+                txtName.setText(String.valueOf(s_name));
+                txtMobile.setText(String.valueOf(telephone));
+                txtAddress.setText(String.valueOf(address));
+                txtAcc_Number.setText(String.valueOf(acc_number));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_tblSupplierMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblSupplier;
+    private javax.swing.JTextField txtAcc_Number;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JTextField txtMobile;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
