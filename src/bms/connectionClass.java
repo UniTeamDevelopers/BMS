@@ -145,4 +145,7 @@ public class connectionClass {
         stmt.executeUpdate(sql);
         System.out.println("record deleted successfully");
     }
+    
+     //delete product record home
+  
 }
