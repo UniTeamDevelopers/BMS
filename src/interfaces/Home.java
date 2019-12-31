@@ -43,8 +43,7 @@ public class Home extends javax.swing.JFrame {
             total = total + subVal;
             System.out.println(numS);
         }
-        System.out.println(total);
-        txtTotal.setText(String.valueOf(total));
+        System.out.println(total);      
         jLabel3.setText(String.valueOf(total));
         Double calTotBill = total-(total*Integer.parseInt(discount)/100);
         txtTotalBill.setText(String.valueOf(calTotBill));
@@ -82,7 +81,6 @@ public class Home extends javax.swing.JFrame {
         btnQty = new javax.swing.JButton();
         btnPayment = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtTotal = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
 
@@ -187,6 +185,7 @@ public class Home extends javax.swing.JFrame {
         jLabel15.setText(" Home");
 
         jList1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jList1.setOpaque(false);
         jList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -238,8 +237,6 @@ public class Home extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px_1.png"))); // NOI18N
 
-        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
         javax.swing.GroupLayout panespaceLayout = new javax.swing.GroupLayout(panespace);
         panespace.setLayout(panespaceLayout);
         panespaceLayout.setHorizontalGroup(
@@ -273,17 +270,12 @@ public class Home extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSearch))))
                     .addGroup(panespaceLayout.createSequentialGroup()
-                        .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panespaceLayout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(lblSelectedCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panespaceLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(48, 48, 48)
+                        .addComponent(lblSelectedCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -330,19 +322,14 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel8)
                             .addComponent(btnPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panespaceLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel1)
-                                    .addComponent(lblDiscount))
-                                .addGap(40, 40, 40)
-                                .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTotalBill)
-                                    .addComponent(jLabel4)))
-                            .addGroup(panespaceLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(27, 27, 27)
+                        .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(lblDiscount))
+                        .addGap(40, 40, 40)
+                        .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTotalBill)
+                            .addComponent(jLabel4)))
                     .addGroup(panespaceLayout.createSequentialGroup()
                         .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSelectCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -365,7 +352,7 @@ public class Home extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        //home stoct click open search
         new Search().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -379,20 +366,20 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelectCustomerActionPerformed
 
     private void btnNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSaleActionPerformed
-        // TODO add your handling code here:
+        // home new sale
         DefaultTableModel dm = (DefaultTableModel) tblProduct.getModel();
         dm.getDataVector().removeAllElements();
         dm.fireTableDataChanged(); // notifies the JTable that the model has changed
     }//GEN-LAST:event_btnNewSaleActionPerformed
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        // TODO add your handling code here:
+        // management button click open management form
         new Management().setVisible(true);
     }//GEN-LAST:event_jLabel16MouseClicked
 
     //search list
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        // TODO add your handling code here:
+        
         int index = jList1.getSelectedIndex();
         System.out.println("Index Selected: " + index);
         String s = (String) jList1.getSelectedValue();
@@ -442,7 +429,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchKeyTyped
 
     private void btnQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQtyActionPerformed
-        // TODO add your handling code here:
+        // hone qty
         DefaultTableModel model = (DefaultTableModel) tblProduct.getModel();
         String qty = JOptionPane.showInputDialog("Enter quantity");
         int row = tblProduct.getSelectedRow();
@@ -454,12 +441,12 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQtyActionPerformed
 
     private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
-        // TODO add your handling code here:
+        // home payment click
         calValue();
     }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        // home delete
         int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Delete Product");
         int[] rows = tblProduct.getSelectedRows();
         DefaultTableModel tm = (DefaultTableModel) tblProduct.getModel();
@@ -472,7 +459,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountActionPerformed
-        // TODO add your handling code here:
+        // home discount
         discount = JOptionPane.showInputDialog("Enter discount precentage for full bill");
         lblDiscount.setText(discount+"%");
     }//GEN-LAST:event_btnDiscountActionPerformed
@@ -511,7 +498,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel panespace;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtTotal;
     private javax.swing.JLabel txtTotalBill;
     // End of variables declaration//GEN-END:variables
 }
