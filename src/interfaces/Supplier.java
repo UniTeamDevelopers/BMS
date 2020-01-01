@@ -206,7 +206,9 @@ public class Supplier extends javax.swing.JInternalFrame {
         if(Acc.equals("")){
             JOptionPane.showMessageDialog(null,"Account number is Mandotory!");
         }
-        
+        else{
+            JOptionPane.showMessageDialog(null,"Added Successfully");
+        }
         
         // add supplier
         int Id = Integer.parseInt(txtID.getText().trim());

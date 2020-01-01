@@ -285,6 +285,9 @@ public class Product extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"Price is Mandotory!");
         
         }
+        else{
+            JOptionPane.showMessageDialog(null,"Added Successfully");
+        }
     
         // add product
         int id = Integer.parseInt(ID.getText().trim());

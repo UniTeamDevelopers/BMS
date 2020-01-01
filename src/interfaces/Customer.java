@@ -187,6 +187,9 @@ public class Customer extends javax.swing.JInternalFrame {
         if(cMobile.equals("")){
             JOptionPane.showMessageDialog(null,"Mobile number is Mandotory!");
         }
+        else{
+            JOptionPane.showMessageDialog(null,"Added Successfully");
+        }
         
         
         // add customer
