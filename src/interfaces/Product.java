@@ -8,6 +8,7 @@ package interfaces;
 import bms.HowToConnect;
 import bms.connectionClass;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -84,6 +85,10 @@ public class Product extends javax.swing.JInternalFrame {
         Quntity = new javax.swing.JTextField();
         Price = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        i = new javax.swing.JLabel();
+        i1 = new javax.swing.JLabel();
+        i2 = new javax.swing.JLabel();
+        i3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -157,18 +162,43 @@ public class Product extends javax.swing.JInternalFrame {
         ID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         ID.setToolTipText("Product Name");
         ID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDActionPerformed(evt);
+            }
+        });
+        ID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                IDKeyPressed(evt);
+            }
+        });
 
         Name.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Name.setToolTipText("Product Name");
         Name.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                NameKeyPressed(evt);
+            }
+        });
 
         Quntity.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Quntity.setToolTipText("Product Name");
         Quntity.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Quntity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                QuntityKeyPressed(evt);
+            }
+        });
 
         Price.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         Price.setToolTipText("Product Name");
         Price.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Price.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PriceKeyPressed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(0, 204, 204));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -179,6 +209,18 @@ public class Product extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+
+        i.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i.setForeground(new java.awt.Color(204, 0, 0));
+
+        i1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i1.setForeground(new java.awt.Color(204, 0, 0));
+
+        i2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i2.setForeground(new java.awt.Color(204, 0, 0));
+
+        i3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i3.setForeground(new java.awt.Color(204, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,7 +257,11 @@ public class Product extends javax.swing.JInternalFrame {
                                     .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Quntity, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(i3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23))
@@ -233,18 +279,26 @@ public class Product extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(i, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
+                        .addGap(4, 4, 4)
+                        .addComponent(i1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addComponent(Quntity, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(i2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)))
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(i3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -288,7 +342,9 @@ public class Product extends javax.swing.JInternalFrame {
         else{
             JOptionPane.showMessageDialog(null,"Added Successfully");
         }
-    
+        
+        
+        
         // add product
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
@@ -420,12 +476,127 @@ public class Product extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtSearchKeyTyped
 
+    private void IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IDActionPerformed
+
+    private void IDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDKeyPressed
+        // TODO add your handling code here:
+        String id1 = ID.getText();
+        //length of integer
+        int length = id1.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<4){
+            ID.setEditable(true);
+            }
+            else
+            {
+            ID.setEditable(false);
+            //erro message for length
+            i.setText("use maximum 4 numbers");
+            }
+        }
+        else {
+            ID.setEditable(false);
+            //error message for data type                               
+            i.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                ID.setEditable(true);
+            }else
+            {
+                ID.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_IDKeyPressed
+
+    private void NameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameKeyPressed
+        // TODO add your handling code here:
+        String name2 = Name.getText();
+        //length of integer
+        int length = name2.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            if(length<20){
+            Name.setEditable(true);
+            }
+            else
+            {
+            Name.setEditable(false);
+            //erro message for length
+            i1.setText("use maximum 20 letters");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                Name.setEditable(true);
+            }else
+            {
+                Name.setEditable(false);
+            }
+            }
+        }else
+        {
+            Name.setEditable(false);
+            i1.setText("Please enter letters only!");
+        }
+    }//GEN-LAST:event_NameKeyPressed
+
+    private void QuntityKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_QuntityKeyPressed
+        // TODO add your handling code here:
+        String q1 = Quntity.getText();
+        //length of integer
+        int length = q1.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<11){
+            Quntity.setEditable(true);
+            }
+            else
+            {
+            Quntity.setEditable(false);
+            //erro message for length
+            i2.setText("use maximum 11 numbers");
+            }
+        }
+        else {
+            Quntity.setEditable(false);
+            //error message for data type                               
+            i2.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                Quntity.setEditable(true);
+            }else
+            {
+                Quntity.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_QuntityKeyPressed
+
+    private void PriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyPressed
+        // TODO add your handling code here:
+        char c=evt.getKeyChar();
+        if(Character.isLetter(c)&&!evt.isAltDown()){
+            evt.consume();
+        }
+    }//GEN-LAST:event_PriceKeyPressed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ID;
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Price;
     private javax.swing.JTextField Quntity;
+    private javax.swing.JLabel i;
+    private javax.swing.JLabel i1;
+    private javax.swing.JLabel i2;
+    private javax.swing.JLabel i3;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
