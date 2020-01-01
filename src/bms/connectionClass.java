@@ -38,7 +38,7 @@ public class connectionClass {
         System.out.println("fetching data");
         stmt = con.createStatement();
         //String sql = "select password from user where u_name ='"+txtUname+"'";
-        String sql = "select * from user";
+        String sql = "select password from user where u_name ='"+txtUname+"'";
         stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         while (rs.next()) {
@@ -141,11 +141,11 @@ public class connectionClass {
     //delete Customer record
     public void deleteFromCustomer(String selected) throws SQLException {
         stmt = con.createStatement();
-        String sql = "delete from customer where s_id='" + selected + "'";
+        String sql = "delete from customer where c_id='" + selected + "'";
         stmt.executeUpdate(sql);
         System.out.println("record deleted successfully");
     }
     
-     //delete product record home
+     
   
 }
