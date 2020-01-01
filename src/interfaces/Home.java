@@ -135,7 +135,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("         0:00");
+        jLabel3.setText("0:00");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,11 +164,11 @@ public class Home extends javax.swing.JFrame {
 
         txtTotalBill.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         txtTotalBill.setForeground(new java.awt.Color(255, 255, 255));
-        txtTotalBill.setText("     0:00");
+        txtTotalBill.setText("0:00");
 
         lblDiscount.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblDiscount.setForeground(new java.awt.Color(255, 255, 255));
-        lblDiscount.setText("         0:00");
+        lblDiscount.setText("0:00");
 
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,8 +196,9 @@ public class Home extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
-        txtSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txtSearch.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
         txtSearch.setOpaque(false);
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -515,6 +516,8 @@ public class Home extends javax.swing.JFrame {
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         //log out button
         new Login().setVisible(true);
+        setVisible(false); //you can't see me!
+        dispose(); //Destroy the JFrame object
     }//GEN-LAST:event_jLabel2MouseClicked
 
     public static void main(String args[]) {

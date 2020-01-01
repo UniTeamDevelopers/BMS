@@ -89,6 +89,7 @@ public class Search extends javax.swing.JFrame {
 
         txtSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(255, 255, 255));
+        txtSearch.setBorder(null);
         txtSearch.setOpaque(false);
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
