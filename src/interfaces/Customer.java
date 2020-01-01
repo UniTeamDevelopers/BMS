@@ -7,6 +7,7 @@ package interfaces;
 
 import bms.connectionClass;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,6 +76,10 @@ public class Customer extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        l1 = new javax.swing.JLabel();
+        l2 = new javax.swing.JLabel();
+        l3 = new javax.swing.JLabel();
+        l4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,6 +120,12 @@ public class Customer extends javax.swing.JInternalFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Last Name");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 120, 50));
+
+        txtMobile.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMobileKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 250, 50));
 
         txtID.addActionListener(new java.awt.event.ActionListener() {
@@ -122,8 +133,30 @@ public class Customer extends javax.swing.JInternalFrame {
                 txtIDActionPerformed(evt);
             }
         });
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtIDKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 250, 50));
+
+        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFirstNameKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 250, 50));
+
+        txtLastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLastNameActionPerformed(evt);
+            }
+        });
+        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLastNameKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 250, 50));
 
         jButton5.setBackground(new java.awt.Color(0, 204, 204));
@@ -159,9 +192,25 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 489, -1, 60));
 
+        l1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        l1.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 200, 10));
+
+        l2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        l2.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 200, 10));
+
+        l3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        l3.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(l3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 200, 10));
+
+        l4.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        l4.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(l4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 200, 10));
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,6 +348,143 @@ public class Customer extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
 
+    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLastNameActionPerformed
+
+    private void txtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyPressed
+        // TODO add your handling code here:
+        String i3 = txtID.getText();
+        //length of integer
+        int length = i3.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<4){
+            txtID.setEditable(true);
+            }
+            else
+            {
+            txtID.setEditable(false);
+            //erro message for length
+            l1.setText("use maximum 4 numbers");
+            }
+        }
+        else {
+            txtID.setEditable(false);
+            //error message for data type                               
+            l1.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtID.setEditable(true);
+            }else
+            {
+                txtID.setEditable(false);
+            }
+        }
+        
+    }//GEN-LAST:event_txtIDKeyPressed
+
+    private void txtFirstNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyPressed
+        // TODO add your handling code here:
+        String fname = txtFirstName.getText();
+        //length of integer
+        int length = fname.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            if(length<20){
+            txtFirstName.setEditable(true);
+            }
+            else
+            {
+            txtFirstName.setEditable(false);
+            //erro message for length
+            l2.setText("use maximum 20 letters");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtFirstName.setEditable(true);
+            }else
+            {
+                txtFirstName.setEditable(false);
+            }
+            }
+        }else
+        {
+            txtFirstName.setEditable(false);
+            l2.setText("Please enter letters only!");
+        }
+    }//GEN-LAST:event_txtFirstNameKeyPressed
+
+    private void txtLastNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyPressed
+        // TODO add your handling code here:
+        String lname = txtLastName.getText();
+        //length of integer
+        int length = lname.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            if(length<20){
+            txtLastName.setEditable(true);
+            }
+            else
+            {
+            txtLastName.setEditable(false);
+            //erro message for length
+            l3.setText("use maximum 20 letters");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtLastName.setEditable(true);
+            }else
+            {
+                txtLastName.setEditable(false);
+            }
+            }
+        }else
+        {
+            txtLastName.setEditable(false);
+            l3.setText("Please enter letters only!");
+        }
+    }//GEN-LAST:event_txtLastNameKeyPressed
+
+    private void txtMobileKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyPressed
+        // TODO add your handling code here:
+        String i4 = txtMobile.getText();
+        //length of integer
+        int length = i4.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+            txtMobile.setEditable(true);
+            }
+            else
+            {
+            txtMobile.setEditable(false);
+            //erro message for length
+            l4.setText("use maximum 10 numbers");
+            }
+        }
+        else {
+            txtMobile.setEditable(false);
+            //error message for data type                               
+            l4.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtMobile.setEditable(true);
+            }else
+            {
+                txtMobile.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtMobileKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
@@ -310,6 +496,10 @@ public class Customer extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel l1;
+    private javax.swing.JLabel l2;
+    private javax.swing.JLabel l3;
+    private javax.swing.JLabel l4;
     private javax.swing.JTable tblCustomer;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtID;

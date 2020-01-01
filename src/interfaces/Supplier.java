@@ -7,6 +7,7 @@ package interfaces;
 
 import bms.connectionClass;
 import java.awt.Font;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,8 +29,8 @@ public class Supplier extends javax.swing.JInternalFrame {
     public Supplier() throws Exception {
         initComponents();
         showSupplierTable();
-        tblSupplier.setRowHeight(40);
-        tblSupplier.setFont(new Font("Serif", Font.BOLD, 20));
+        l4.setRowHeight(40);
+        l4.setFont(new Font("Serif", Font.BOLD, 20));
     }
 
     public void showSupplierTable() throws Exception {
@@ -46,7 +47,7 @@ public class Supplier extends javax.swing.JInternalFrame {
                 int accNum = showSupplier.rs.getInt(5);
                 System.out.println(id + " " + sName + " " + tele + " " + address +" "+accNum);
                 Object[] content = {id, sName, tele, address,accNum};
-                model = (DefaultTableModel) tblSupplier.getModel();
+                model = (DefaultTableModel) l4.getModel();
                 model.addRow(content);
             }
         } catch (Exception ex) {
@@ -64,7 +65,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblSupplier = new javax.swing.JTable();
+        l4 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -78,12 +79,17 @@ public class Supplier extends javax.swing.JInternalFrame {
         txtAddress = new javax.swing.JTextField();
         txtAcc_Number = new javax.swing.JTextField();
         txtID = new javax.swing.JTextField();
+        i1 = new javax.swing.JLabel();
+        i2 = new javax.swing.JLabel();
+        i3 = new javax.swing.JLabel();
+        i4 = new javax.swing.JLabel();
+        i5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblSupplier.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
+        l4.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        l4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -91,13 +97,13 @@ public class Supplier extends javax.swing.JInternalFrame {
                 "Id", "Name", "Mobile", "Address", "Acc_Number"
             }
         ));
-        tblSupplier.setIntercellSpacing(new java.awt.Dimension(2, 2));
-        tblSupplier.addMouseListener(new java.awt.event.MouseAdapter() {
+        l4.setIntercellSpacing(new java.awt.Dimension(2, 2));
+        l4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblSupplierMouseClicked(evt);
+                l4MouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblSupplier);
+        jScrollPane1.setViewportView(l4);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 550, 380));
 
@@ -160,19 +166,64 @@ public class Supplier extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 80, 40));
 
         txtName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 290, 40));
 
         txtMobile.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtMobile.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtMobileKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 290, 40));
 
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAddressKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 290, 90));
 
         txtAcc_Number.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtAcc_Number.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAcc_NumberKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtAcc_Number, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 290, 40));
 
         txtID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtIDKeyPressed(evt);
+            }
+        });
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 290, 40));
+
+        i1.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i1.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(i1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 240, 10));
+
+        i2.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i2.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(i2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 230, 10));
+
+        i3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i3.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(i3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 220, 10));
+
+        i4.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i4.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(i4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 220, 10));
+
+        i5.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        i5.setForeground(new java.awt.Color(204, 0, 0));
+        getContentPane().add(i5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 220, 10));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, -1));
@@ -285,11 +336,11 @@ public class Supplier extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
+    private void l4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_l4MouseClicked
         // Mouse clic event on supplier table
         int column = 0;
-        int row = tblSupplier.getSelectedRow();
-        clickValue = tblSupplier.getModel().getValueAt(row, column).toString();
+        int row = l4.getSelectedRow();
+        clickValue = l4.getModel().getValueAt(row, column).toString();
         connectionClass table = new connectionClass();
         try {
             table.connect();
@@ -316,10 +367,180 @@ public class Supplier extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-    }//GEN-LAST:event_tblSupplierMouseClicked
+    }//GEN-LAST:event_l4MouseClicked
+
+    private void txtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyPressed
+        // TODO add your handling code here
+        String z1 = txtID.getText();
+        //length of integer
+        int length = z1.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<4){
+            txtID.setEditable(true);
+            }
+            else
+            {
+            txtID.setEditable(false);
+            //erro message for length
+            i1.setText("use maximum 4 numbers");
+            }
+        }
+        else {
+            txtID.setEditable(false);
+            //error message for data type                               
+            i1.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtID.setEditable(true);
+            }else
+            {
+                txtID.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtIDKeyPressed
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        // TODO add your handling code here:
+        String z2 = txtName.getText();
+        //length of integer
+        int length = z2.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            if(length<20){
+            txtName.setEditable(true);
+            }
+            else
+            {
+            txtName.setEditable(false);
+            //erro message for length
+            i2.setText("use maximum 20 letters");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtName.setEditable(true);
+            }else
+            {
+                txtName.setEditable(false);
+            }
+            }
+        }else
+        {
+            txtName.setEditable(false);
+            i2.setText("Please enter letters only!");
+        }
+    }//GEN-LAST:event_txtNameKeyPressed
+
+    private void txtMobileKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMobileKeyPressed
+        // TODO add your handling code here:
+        String z3 = txtMobile.getText();
+        //length of integer
+        int length = z3.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+            txtMobile.setEditable(true);
+            }
+            else
+            {
+            txtMobile.setEditable(false);
+            //erro message for length
+            i3.setText("use maximum 10 numbers");
+            }
+        }
+        else {
+            txtMobile.setEditable(false);
+            //error message for data type                               
+            i3.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtMobile.setEditable(true);
+            }else
+            {
+                txtMobile.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtMobileKeyPressed
+
+    private void txtAddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyPressed
+        // TODO add your handling code here:
+        String z4 = txtAddress.getText();
+        //length of integer
+        int length = z4.length();
+        
+        char c = evt.getKeyChar();
+        
+        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
+            if(length<20){
+            txtAddress.setEditable(true);
+            }
+            else
+            {
+            txtAddress.setEditable(false);
+            //erro message for length
+            i4.setText("use maximum 20 letters");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtAddress.setEditable(true);
+            }else
+            {
+                txtAddress.setEditable(false);
+            }
+            }
+        }else
+        {
+            txtAddress.setEditable(false);
+            i4.setText("Please enter letters only!");
+        }
+    }//GEN-LAST:event_txtAddressKeyPressed
+
+    private void txtAcc_NumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcc_NumberKeyPressed
+        // TODO add your handling code here:
+        String z4 = txtAcc_Number.getText();
+        //length of integer
+        int length = z4.length();
+        
+        char c = evt.getKeyChar();
+        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
+            if(length<10){
+            txtAcc_Number.setEditable(true);
+            }
+            else
+            {
+            txtAcc_Number.setEditable(false);
+            //erro message for length
+            i5.setText("use maximum 10 numbers");
+            }
+        }
+        else {
+            txtAcc_Number.setEditable(false);
+            //error message for data type                               
+            i5.setText("Please enter numbers only!");
+            
+            //to allow backspace and delete
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+                txtAcc_Number.setEditable(true);
+            }else
+            {
+                txtAcc_Number.setEditable(false);
+            }
+        }
+    }//GEN-LAST:event_txtAcc_NumberKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel i1;
+    private javax.swing.JLabel i2;
+    private javax.swing.JLabel i3;
+    private javax.swing.JLabel i4;
+    private javax.swing.JLabel i5;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -330,7 +551,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblSupplier;
+    private javax.swing.JTable l4;
     private javax.swing.JTextField txtAcc_Number;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtID;
