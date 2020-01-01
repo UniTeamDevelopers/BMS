@@ -581,35 +581,6 @@ public class Product extends javax.swing.JInternalFrame {
 
     private void PriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyPressed
         // TODO add your handling code here:
-        String p1 = Price.getText();
-        //length of integer
-        int length = p1.length();
-        
-        char c = evt.getKeyChar();
-        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
-            if(length<6){
-            Price.setEditable(true);
-            }
-            else
-            {
-            Price.setEditable(false);
-            //erro message for length
-            i3.setText("use maximum 6 numbers");
-            }
-        }
-        else {
-            Price.setEditable(false);
-            //error message for data type                               
-            i3.setText("Please enter numbers only!");
-            
-            //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE || evt.getExtendedKeyCode()==KeyEvent.VK_DECIMAL){
-                Price.setEditable(true);
-            }else
-            {
-                Price.setEditable(false);
-            }
-        }
     }//GEN-LAST:event_PriceKeyPressed
     
 

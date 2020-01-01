@@ -14,6 +14,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+//for address validation
+import java.util.regex.*;
+import static javax.management.Query.match;
+
 /**
  *
  * @author User
@@ -186,6 +190,9 @@ public class Supplier extends javax.swing.JInternalFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtAddressKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAddressKeyReleased(evt);
+            }
         });
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 290, 90));
 
@@ -219,6 +226,11 @@ public class Supplier extends javax.swing.JInternalFrame {
 
         i4.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         i4.setForeground(new java.awt.Color(204, 0, 0));
+        i4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                i4KeyReleased(evt);
+            }
+        });
         getContentPane().add(i4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 220, 10));
 
         i5.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -238,18 +250,18 @@ public class Supplier extends javax.swing.JInternalFrame {
         String sMobile=txtMobile.getText().toString();
         String sAdd=txtAddress.getText().toString();
         String Acc=txtAcc_Number.getText().toString();
-        
+
         if(iD.equals("")){
             JOptionPane.showMessageDialog(null,"ID is Mandotory!");
-        
+
         }
         if(sName.equals("")){
             JOptionPane.showMessageDialog(null,"Name is Mandotory!");
-        
+
         }
         if(sMobile.equals("")){
             JOptionPane.showMessageDialog(null,"Mobile number is Mandotory!");
-        
+
         }
         if(sAdd.equals("")){
             JOptionPane.showMessageDialog(null,"Address is Mandotory!");
@@ -260,7 +272,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         else{
             JOptionPane.showMessageDialog(null,"Added Successfully");
         }
-        
+
         // add supplier
         int Id = Integer.parseInt(txtID.getText().trim());
         String Name = txtName.getText().trim();
@@ -319,7 +331,7 @@ public class Supplier extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // delete supplier
         int x = JOptionPane.showConfirmDialog(null, "Do You Really Want To Delete Supplier");
-        
+
         connectionClass deleteSupplier = new connectionClass();
         try {
             deleteSupplier.connect();
@@ -374,7 +386,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String z1 = txtID.getText();
         //length of integer
         int length = z1.length();
-        
+
         char c = evt.getKeyChar();
         if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
             if(length<4){
@@ -389,9 +401,9 @@ public class Supplier extends javax.swing.JInternalFrame {
         }
         else {
             txtID.setEditable(false);
-            //error message for data type                               
+            //error message for data type
             i1.setText("Please enter numbers only!");
-            
+
             //to allow backspace and delete
             if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
                 txtID.setEditable(true);
@@ -407,9 +419,9 @@ public class Supplier extends javax.swing.JInternalFrame {
         String z2 = txtName.getText();
         //length of integer
         int length = z2.length();
-        
+
         char c = evt.getKeyChar();
-        
+
         if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
             if(length<20){
             txtName.setEditable(true);
@@ -419,7 +431,7 @@ public class Supplier extends javax.swing.JInternalFrame {
             txtName.setEditable(false);
             //erro message for length
             i2.setText("use maximum 20 letters");
-            
+
             //to allow backspace and delete
             if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
                 txtName.setEditable(true);
@@ -440,7 +452,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String z3 = txtMobile.getText();
         //length of integer
         int length = z3.length();
-        
+
         char c = evt.getKeyChar();
         if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
             if(length<10){
@@ -455,11 +467,11 @@ public class Supplier extends javax.swing.JInternalFrame {
         }
         else {
             txtMobile.setEditable(false);
-            //error message for data type                               
+            //error message for data type
             i3.setText("Please enter numbers only!");
-            
+
             //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE ){
                 txtMobile.setEditable(true);
             }else
             {
@@ -470,35 +482,6 @@ public class Supplier extends javax.swing.JInternalFrame {
 
     private void txtAddressKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyPressed
         // TODO add your handling code here:
-        String z4 = txtAddress.getText();
-        //length of integer
-        int length = z4.length();
-        
-        char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
-            if(length<20){
-            txtAddress.setEditable(true);
-            }
-            else
-            {
-            txtAddress.setEditable(false);
-            //erro message for length
-            i4.setText("use maximum 20 letters");
-            
-            //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
-                txtAddress.setEditable(true);
-            }else
-            {
-                txtAddress.setEditable(false);
-            }
-            }
-        }else
-        {
-            txtAddress.setEditable(false);
-            i4.setText("Please enter letters only!");
-        }
     }//GEN-LAST:event_txtAddressKeyPressed
 
     private void txtAcc_NumberKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAcc_NumberKeyPressed
@@ -506,7 +489,7 @@ public class Supplier extends javax.swing.JInternalFrame {
         String z4 = txtAcc_Number.getText();
         //length of integer
         int length = z4.length();
-        
+
         char c = evt.getKeyChar();
         if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
             if(length<10){
@@ -521,9 +504,9 @@ public class Supplier extends javax.swing.JInternalFrame {
         }
         else {
             txtAcc_Number.setEditable(false);
-            //error message for data type                               
+            //error message for data type
             i5.setText("Please enter numbers only!");
-            
+
             //to allow backspace and delete
             if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
                 txtAcc_Number.setEditable(true);
@@ -533,6 +516,14 @@ public class Supplier extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_txtAcc_NumberKeyPressed
+
+    private void i4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_i4KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_i4KeyReleased
+
+    private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

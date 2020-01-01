@@ -121,6 +121,7 @@ public class Customer extends javax.swing.JInternalFrame {
         jLabel12.setText("Last Name");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 120, 50));
 
+        txtMobile.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtMobile.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtMobileKeyPressed(evt);
@@ -128,6 +129,7 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 250, 50));
 
+        txtID.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIDActionPerformed(evt);
@@ -140,6 +142,7 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 250, 50));
 
+        txtFirstName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtFirstNameKeyPressed(evt);
@@ -147,6 +150,7 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 250, 50));
 
+        txtLastName.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         txtLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLastNameActionPerformed(evt);
