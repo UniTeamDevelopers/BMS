@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +32,9 @@ public class Home extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         tblProduct.setRowHeight(60);
         tblProduct.setFont(new Font("Serif", Font.BOLD, 20));
+        //study
+        //ImageIcon icon = new ImageIcon(".//Ressources//User_50.png");
+        //this.setIconImage(icon.getImage());
 
     }
 
@@ -211,7 +215,7 @@ public class Home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "name", "uPrice", "qty", "sub total"
+                "ID", "Name", "U_Price", "Qty", "Sub Total"
             }
         ));
         jScrollPane3.setViewportView(tblProduct);
@@ -325,9 +329,8 @@ public class Home extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panespaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)))
                     .addGroup(panespaceLayout.createSequentialGroup()
                         .addGap(2, 2, 2)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
