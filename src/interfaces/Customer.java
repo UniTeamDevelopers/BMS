@@ -116,6 +116,12 @@ public class Customer extends javax.swing.JInternalFrame {
         jLabel12.setText("Last Name");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 120, 50));
         getContentPane().add(txtMobile, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 250, 50));
+
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 250, 50));
         getContentPane().add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 250, 50));
         getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 250, 50));
@@ -161,6 +167,28 @@ public class Customer extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //validation
+        String iD=txtID.getText().toString();
+        String cFName=txtFirstName.getText().toString();
+        String cLName=txtLastName.getText().toString();
+        String cMobile=txtMobile.getText().toString();
+        if(iD.equals("")){
+            JOptionPane.showMessageDialog(null,"ID is Mandotory!");
+        
+        }
+        if(cFName.equals("")){
+            JOptionPane.showMessageDialog(null,"First name is Mandotory!");
+        
+        }
+        if(cLName.equals("")){
+            JOptionPane.showMessageDialog(null,"Last name is Mandotory!");
+        
+        }
+        if(cMobile.equals("")){
+            JOptionPane.showMessageDialog(null,"Mobile number is Mandotory!");
+        }
+        
+        
         // add customer
         int Id = Integer.parseInt(txtID.getText().trim());
         String FName = txtFirstName.getText().trim();
@@ -263,6 +291,10 @@ public class Customer extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }
     }//GEN-LAST:event_tblCustomerMouseClicked
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

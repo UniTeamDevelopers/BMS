@@ -181,6 +181,33 @@ public class Supplier extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //validation
+        String iD=txtID.getText().toString();
+        String sName=txtName.getText().toString();
+        String sMobile=txtMobile.getText().toString();
+        String sAdd=txtAddress.getText().toString();
+        String Acc=txtAcc_Number.getText().toString();
+        
+        if(iD.equals("")){
+            JOptionPane.showMessageDialog(null,"ID is Mandotory!");
+        
+        }
+        if(sName.equals("")){
+            JOptionPane.showMessageDialog(null,"Name is Mandotory!");
+        
+        }
+        if(sMobile.equals("")){
+            JOptionPane.showMessageDialog(null,"Mobile number is Mandotory!");
+        
+        }
+        if(sAdd.equals("")){
+            JOptionPane.showMessageDialog(null,"Address is Mandotory!");
+        }
+        if(Acc.equals("")){
+            JOptionPane.showMessageDialog(null,"Account number is Mandotory!");
+        }
+        
+        
         // add supplier
         int Id = Integer.parseInt(txtID.getText().trim());
         String Name = txtName.getText().trim();

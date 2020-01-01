@@ -264,6 +264,28 @@ public class Product extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //validation
+        String iD=ID.getText().toString();
+        String pName=Name.getText().toString();
+        String pQuntity=Quntity.getText().toString();
+        String pPrice=Price.getText().toString();
+        if(iD.equals("")){
+            JOptionPane.showMessageDialog(null,"ID is Mandotory!");
+        
+        }
+        if(pName.equals("")){
+            JOptionPane.showMessageDialog(null,"Name is Mandotory!");
+        
+        }
+        if(pQuntity.equals("")){
+            JOptionPane.showMessageDialog(null,"Quntity is Mandotory!");
+        
+        }
+        if(pPrice.equals("")){
+            JOptionPane.showMessageDialog(null,"Price is Mandotory!");
+        
+        }
+    
         // add product
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
