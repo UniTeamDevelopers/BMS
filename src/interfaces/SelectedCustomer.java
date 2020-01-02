@@ -36,12 +36,23 @@ public class SelectedCustomer extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         listCustomer = new javax.swing.JList<>();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         txtCustomerSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCustomerSearch.setForeground(new java.awt.Color(255, 255, 255));
         txtCustomerSearch.setBorder(null);
         txtCustomerSearch.setOpaque(false);
         txtCustomerSearch.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -49,7 +60,8 @@ public class SelectedCustomer extends javax.swing.JFrame {
                 txtCustomerSearchKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 48));
+        getContentPane().add(txtCustomerSearch);
+        txtCustomerSearch.setBounds(270, 60, 330, 48);
 
         listCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -58,11 +70,67 @@ public class SelectedCustomer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listCustomer);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 158, 250));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 170, -1));
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(710, 100, 200, 390);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(270, 110, 330, 10);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px_1.png"))); // NOI18N
+        jLabel6.setText("Search");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(20, 10, 140, 50);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Customer Name");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(110, 90, 160, 22);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Mobile");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(270, 400, 130, 22);
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(270, 440, 330, 50);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Customer ID");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(270, 130, 130, 22);
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(270, 160, 330, 50);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("First Name");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(270, 220, 130, 22);
+
+        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(270, 250, 330, 50);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Last Name");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(270, 310, 130, 22);
+
+        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(270, 340, 330, 50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur1.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 250));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 950, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -140,8 +208,18 @@ public class SelectedCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JList<String> listCustomer;
     private javax.swing.JTextField txtCustomerSearch;
     // End of variables declaration//GEN-END:variables

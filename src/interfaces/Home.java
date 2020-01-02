@@ -397,7 +397,11 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSelectCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectCustomerActionPerformed
+        //customer selected home dispose
+        setVisible(false); //you can't see me!
+        dispose(); //Destroy the JFrame object
         new SelectedCustomer().setVisible(true);
+        
     }//GEN-LAST:event_btnSelectCustomerActionPerformed
 
     private void btnNewSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSaleActionPerformed
