@@ -49,9 +49,9 @@ public class SelectedCustomer extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtCustomerSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCustomerSearch.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtCustomerSearch.setForeground(new java.awt.Color(255, 255, 255));
         txtCustomerSearch.setBorder(null);
         txtCustomerSearch.setOpaque(false);
@@ -60,8 +60,7 @@ public class SelectedCustomer extends javax.swing.JFrame {
                 txtCustomerSearchKeyTyped(evt);
             }
         });
-        getContentPane().add(txtCustomerSearch);
-        txtCustomerSearch.setBounds(270, 60, 330, 48);
+        getContentPane().add(txtCustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 330, 40));
 
         listCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -70,67 +69,54 @@ public class SelectedCustomer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listCustomer);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(710, 100, 200, 390);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(270, 110, 330, 10);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 200, 370));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 330, 10));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_search_50px_1.png"))); // NOI18N
         jLabel6.setText("Search");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(20, 10, 140, 50);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 143, 61));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Customer Name");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(110, 90, 160, 22);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Mobile");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(270, 400, 130, 22);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 130, -1));
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(270, 440, 330, 50);
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 330, 50));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Customer ID");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(270, 130, 130, 22);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 130, -1));
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(270, 160, 330, 50);
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 330, 50));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("First Name");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(270, 220, 130, 22);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 130, -1));
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(270, 250, 330, 50);
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 330, 50));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Last Name");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(270, 310, 130, 22);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 130, -1));
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(270, 340, 330, 50);
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 330, 50));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur1.png"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 950, 600);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
