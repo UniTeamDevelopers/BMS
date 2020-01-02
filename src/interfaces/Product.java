@@ -319,32 +319,29 @@ public class Product extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         //validation
-        String iD=ID.getText().toString();
-        String pName=Name.getText().toString();
-        String pQuntity=Quntity.getText().toString();
-        String pPrice=Price.getText().toString();
-        if(iD.equals("")){
-            JOptionPane.showMessageDialog(null,"ID is Mandotory!");
-        
+        String iD = ID.getText().toString();
+        String pName = Name.getText().toString();
+        String pQuntity = Quntity.getText().toString();
+        String pPrice = Price.getText().toString();
+        if (iD.equals("")) {
+            JOptionPane.showMessageDialog(null, "ID is Mandotory!");
+
         }
-        if(pName.equals("")){
-            JOptionPane.showMessageDialog(null,"Name is Mandotory!");
-        
+        if (pName.equals("")) {
+            JOptionPane.showMessageDialog(null, "Name is Mandotory!");
+
         }
-        if(pQuntity.equals("")){
-            JOptionPane.showMessageDialog(null,"Quntity is Mandotory!");
-        
+        if (pQuntity.equals("")) {
+            JOptionPane.showMessageDialog(null, "Quntity is Mandotory!");
+
         }
-        if(pPrice.equals("")){
-            JOptionPane.showMessageDialog(null,"Price is Mandotory!");
-        
+        if (pPrice.equals("")) {
+            JOptionPane.showMessageDialog(null, "Price is Mandotory!");
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Added Successfully");
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Added Successfully");
-        }
-        
-        
-        
+
         // add product
         int id = Integer.parseInt(ID.getText().trim());
         String P_Name = Name.getText().trim();
@@ -485,29 +482,25 @@ public class Product extends javax.swing.JInternalFrame {
         String id1 = ID.getText();
         //length of integer
         int length = id1.length();
-        
+
         char c = evt.getKeyChar();
-        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
-            if(length<4){
-            ID.setEditable(true);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            if (length < 4) {
+                ID.setEditable(true);
+            } else {
+                ID.setEditable(false);
+                //error message for length
+                i.setText("use maximum 4 numbers");
             }
-            else
-            {
-            ID.setEditable(false);
-            //erro message for length
-            i.setText("use maximum 4 numbers");
-            }
-        }
-        else {
+        } else {
             ID.setEditable(false);
             //error message for data type                               
             i.setText("Please enter numbers only!");
-            
+
             //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
                 ID.setEditable(true);
-            }else
-            {
+            } else {
                 ID.setEditable(false);
             }
         }
@@ -518,29 +511,25 @@ public class Product extends javax.swing.JInternalFrame {
         String name2 = Name.getText();
         //length of integer
         int length = name2.length();
-        
+
         char c = evt.getKeyChar();
-        
-        if(Character.isLetter(c)||Character.isWhitespace(c)||Character.isISOControl(c)){
-            if(length<20){
-            Name.setEditable(true);
-            }
-            else
-            {
-            Name.setEditable(false);
-            //erro message for length
-            i1.setText("use maximum 20 letters");
-            
-            //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+
+        if (Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
+            if (length < 20) {
                 Name.setEditable(true);
-            }else
-            {
+            } else {
                 Name.setEditable(false);
+                //erro message for length
+                i1.setText("use maximum 20 letters");
+
+                //to allow backspace and delete
+                if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
+                    Name.setEditable(true);
+                } else {
+                    Name.setEditable(false);
+                }
             }
-            }
-        }else
-        {
+        } else {
             Name.setEditable(false);
             i1.setText("Please enter letters only!");
         }
@@ -551,29 +540,25 @@ public class Product extends javax.swing.JInternalFrame {
         String q1 = Quntity.getText();
         //length of integer
         int length = q1.length();
-        
+
         char c = evt.getKeyChar();
-        if(evt.getKeyChar()>='0' && evt.getKeyChar()<='9'){
-            if(length<11){
-            Quntity.setEditable(true);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            if (length < 11) {
+                Quntity.setEditable(true);
+            } else {
+                Quntity.setEditable(false);
+                //erro message for length
+                i2.setText("use maximum 11 numbers");
             }
-            else
-            {
-            Quntity.setEditable(false);
-            //erro message for length
-            i2.setText("use maximum 11 numbers");
-            }
-        }
-        else {
+        } else {
             Quntity.setEditable(false);
             //error message for data type                               
             i2.setText("Please enter numbers only!");
-            
+
             //to allow backspace and delete
-            if(evt.getExtendedKeyCode()==KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode()==KeyEvent.VK_DELETE){
+            if (evt.getExtendedKeyCode() == KeyEvent.VK_BACK_SPACE || evt.getExtendedKeyCode() == KeyEvent.VK_DELETE) {
                 Quntity.setEditable(true);
-            }else
-            {
+            } else {
                 Quntity.setEditable(false);
             }
         }
@@ -582,7 +567,7 @@ public class Product extends javax.swing.JInternalFrame {
     private void PriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PriceKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_PriceKeyPressed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ID;

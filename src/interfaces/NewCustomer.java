@@ -66,6 +66,12 @@ public class NewCustomer extends javax.swing.JFrame {
 
         txtMobile.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
+        txtID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtIDKeyReleased(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("First Name :");
@@ -160,6 +166,11 @@ public class NewCustomer extends javax.swing.JFrame {
             Logger.getLogger(NewCustomer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void txtIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtIDKeyReleased
 
     public static void main(String args[]) {
 

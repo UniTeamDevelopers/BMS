@@ -5,6 +5,10 @@
  */
 package interfaces;
 
+import bms.HowToConnect;
+import java.sql.SQLException;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author User
@@ -16,6 +20,7 @@ public class SelectedCustomer extends javax.swing.JFrame {
      */
     public SelectedCustomer() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,42 +32,76 @@ public class SelectedCustomer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        txtCustomerSearch = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jTextField1 = new javax.swing.JTextField();
+        listCustomer = new javax.swing.JList<>();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        txtCustomerSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtCustomerSearch.setBorder(null);
+        txtCustomerSearch.setOpaque(false);
+        txtCustomerSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerSearchKeyTyped(evt);
+            }
         });
-        jScrollPane1.setViewportView(jList1);
+        getContentPane().add(txtCustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 48));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-        );
+        listCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listCustomerMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listCustomer);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 158, 250));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 170, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blur1.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCustomerSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerSearchKeyTyped
+        // TODO add your handling code here:
+        String sk = txtCustomerSearch.getText().trim();
+        DefaultListModel dlm = new DefaultListModel();
+        HowToConnect connect = new HowToConnect();
+        String sql = "select distinct F_name, L_name from customer where F_name like '%" + sk + "%' or L_name like '"+ sk +"'";
+        try {
+            connect.systemConnection();
+            connect.res = connect.stat.executeQuery(sql);
+
+            while (connect.res.next()) {
+                String pName = connect.res.getString(1);
+                String lName = connect.res.getString(2);
+                dlm.addElement(pName +" "+ lName);
+                listCustomer.setModel(dlm);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_txtCustomerSearchKeyTyped
+
+    private void listCustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listCustomerMouseClicked
+        // TODO add your handling code here:
+        int index = listCustomer.getSelectedIndex();
+        System.out.println("Index Selected: " + index);
+        String s = (String) listCustomer.getSelectedValue();
+        System.out.println("Value Selected: " + s);
+        
+        new Home(s).setVisible(true);
+            setVisible(false);
+            dispose();
+        
+        
+    }//GEN-LAST:event_listCustomerMouseClicked
 
     /**
      * @param args the command line arguments
@@ -101,8 +140,9 @@ public class SelectedCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JList<String> listCustomer;
+    private javax.swing.JTextField txtCustomerSearch;
     // End of variables declaration//GEN-END:variables
 }
